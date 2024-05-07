@@ -10,3 +10,17 @@ class UserPostIn(BaseModel):
 # This is the model for db
 class UserPost(UserPostIn):
     id: int
+
+
+class CommentIn(BaseModel):
+    body: str
+    post_id: int
+
+
+class Comment(CommentIn):
+    id: int
+
+
+class UserPostWithComments(BaseModel):
+    post: UserPost
+    comments: list[Comment]
